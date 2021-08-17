@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+*, *::after, *::before { box-sizing: border-box; }
+body, input, select, textarea { font: 18px/1.5 Arial, Helvetica, sans-serif; }
+
+html, body { margin: 0; padding: 0; }
+body { padding: 24px; }
+input { border:2px solid #ccc; border-radius: 5px; }
