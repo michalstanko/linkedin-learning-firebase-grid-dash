@@ -1,16 +1,7 @@
-<form novalidate [formGroup]="form" (submit)="submit()" [class.loading]="loading">
-
-    <label for="txtFirstName">First name:</label>
-    <input id="txtFirstName" name="firstName" formControlName="firstName">
-
-    <label for="txtLastName">Last name:</label>
-    <input id="txtLastName" name="lastName" formControlName="lastName">
-
-    <label for="txtEmail">Email:</label>
-    <input id="txtEmail" name="email" formControlName="email">
-
-    <label for="txtPassword">Password:</label>
-    <input id="txtPassword" type="password" name="password" formControlName="password">
-
-    <input type="submit" value="Sign Up">
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <p>Email: <input type="text" name="email" formControlName="email"></p>
+    <p>Password: <input type="password" name="password" formControlName="password"></p>
+    <p>
+        <input type="submit" value="Log in">
+    </p>
 </form>

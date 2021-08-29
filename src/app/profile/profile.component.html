@@ -1,7 +1,0 @@
-<div *ngIf="afAuth.user | async as user">
-    <p>
-        <strong>Name: {{ user.displayName }}</strong><br>
-        Email: <a [href]="'mailto:' + user.email">{{ user.email }}</a><br>
-        <span class="id">ID: {{ user.uid }}</span><br>
-    </p>
-</div>

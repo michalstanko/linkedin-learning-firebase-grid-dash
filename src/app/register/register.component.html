@@ -1,0 +1,19 @@
+<form novalidate [formGroup]="form" (submit)="submit()" [class.loading]="loading">
+
+    <label for="txtFirstName">First name:</label>
+    <input id="txtFirstName" name="firstName" formControlName="firstName">
+
+    <label for="txtLastName">Last name:</label>
+    <input id="txtLastName" name="lastName" formControlName="lastName">
+
+    <label for="txtEmail">Email:</label>
+    <input id="txtEmail" name="email" formControlName="email">
+
+    <label for="txtPassword">Password:</label>
+    <input id="txtPassword" type="password" name="password" formControlName="password">
+
+    <label for="txtBirthYear">Birth year:</label>
+    <input id="txtBirthYear" name="birthYear" formControlName="birthYear">
+
+    <input type="submit" value="Sign Up">
+</form>
