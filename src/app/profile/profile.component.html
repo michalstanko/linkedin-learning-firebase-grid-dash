@@ -1,0 +1,11 @@
+<h2>User Profile</h2>
+
+<ng-container *ngIf="item$ | async as userProfile">
+    <p>
+        <b>ID:</b> {{ userProfile.uid }}<br>
+        <b>First name:</b> {{ userProfile.firstName }}<br>
+        <b>Last name:</b> {{ userProfile.lastName }}<br>
+        <b>Email:</b> {{ userProfile.email }}<br>
+        <b>Birth year:</b> {{ userProfile.birthYear }}<br>
+    </p>
+</ng-container>

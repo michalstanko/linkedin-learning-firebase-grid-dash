@@ -1,16 +1,15 @@
 <header>
     <h1><a [routerLink]="['/']">The Greatest App</a></h1>
-    <ng-container *ngIf="auth.isLoggedIn$ | async; else tplNotLoggedIn">
+
+    <ng-container *ngIf="user$ | async as userProfile; else tplNotLoggedIn">
+        <span><a [routerLink]="['/profile', userProfile.uid]">{{ userProfile.email }}</a></span>
         <button (click)="logout()">Log out</button>
     </ng-container>
     <ng-template #tplNotLoggedIn>
         <button (click)="register()">Register</button>
         <button (click)="login()">Log in</button>
     </ng-template>
-</header>
 
-<p>
-    Logged in: {{ auth.isLoggedIn$ | async }}
-</p>
+</header>
 
 <router-outlet></router-outlet>

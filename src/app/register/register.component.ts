@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
 
   constructor(
+    private auth: AuthService,
     private afAuth: AngularFireAuth,
     private router: Router,
   ) {
@@ -30,13 +32,13 @@ export class RegisterComponent implements OnInit {
   }
 
   async submit() {
-    console.log(this.form.value);
     this.loading = true;
-    const { firstName, lastName, email, password } = this.form.value;
+    const { firstName, lastName, email, password, birthYear } = this.form.value;
     try {
       const resp = await this.afAuth.createUserWithEmailAndPassword(email, password);
       await resp.user?.updateProfile({ displayName: `${firstName} ${lastName}` });
       const uid = resp.user?.uid;
+      await this.auth.createUserDocument(firstName, lastName, birthYear);
       this.router.navigate([`/profile/${uid}`]);
     } catch (err) {
       console.warn(err.message);

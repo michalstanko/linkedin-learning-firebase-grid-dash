@@ -1,1 +1,16 @@
 <h2>WELCOME</h2>
+
+<p>
+    This app is one of the coolest apps. It's going to rock your world!
+</p>
+
+<ng-container *ngIf="items$ | async as users">
+    <table>
+        <tr *ngFor="let u of users">
+            <td>{{ u.email }}</td>
+            <td>{{ u.firstName }}</td>
+            <td>{{ u.lastName }}</td>
+            <td>{{ u.birthYear }}</td>
+        </tr>
+    </table>
+</ng-container>
